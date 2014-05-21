@@ -1,6 +1,6 @@
 #!/bin/sh
 
-METEOR=meteor
+METEOR=~/meteor/meteor
 
 $METEOR create app-for-export && cd app-for-export
 rm app-for-export.*

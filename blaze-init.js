@@ -29,5 +29,5 @@ Blaze.Var.prototype.set = function (val) {
   if (this._value === val)
     return val;
   this._dep.changed();
-  return (this._value = val);
+  this._value = val;
 };
