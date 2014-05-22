@@ -1,6 +1,6 @@
 #!/bin/sh
 
-METEOR=~/meteor/meteor
+METEOR=~/work/meteor/meteor
 
 $METEOR create app-for-export && cd app-for-export
 rm app-for-export.*
@@ -12,8 +12,13 @@ do
 done
 
 echo "Bundling..."
-$METEOR bundle ../bundle.tgz && cd ../ && tar -zxvf bundle.tgz
-pushd bundle && mv programs/client/*.js ../client.js && popd
+$METEOR bundle $METEOR_OPTIONS ../bundle.tgz && cd ../ && tar -zxvf bundle.tgz
+
+if [[ x"$METEOR_OPTIONS" == "x" ]]; then
+  pushd bundle && mv programs/client/*.js ../client.js && popd
+else
+  pushd bundle && cat programs/client/**/*.js > ../client.js && popd
+fi
 
 rm -rf bundle.tgz
 rm -rf app-for-export
