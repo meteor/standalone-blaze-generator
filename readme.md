@@ -1,16 +1,8 @@
-# meteor export packages
+## Prerequisites
 
-A simple script to bundle together meteor packages into standalone JavaScript files which aren't dependent on anything else in meteor.
+Install [jq](http://stedolan.github.io/jq/download/)
 
 ## Usage
 
-`./export-packages.sh ejson minimongo`
+Modify the value of the METEOR environment variable in `build-blaze.sh` if needed. Then run: `./build-blaze.sh`. You'll find the result in the `blaze.js` file.
 
-## Features
-
-* Currently, this only works for client packages
-
-## Future steps
-
-* Bake this into the `meteor` executable
-* Export serverside modules into commonjs modules to use in any node project
